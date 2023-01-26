@@ -24,4 +24,6 @@ rm_ns () {
 rm_bridge br0
 rm_pair veth0
 rm_pair veth2
+rm_pair veth4
 rm_ns vm0
+rm_ns vm1

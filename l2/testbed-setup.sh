@@ -35,3 +35,4 @@ create_pair_ns () {
 create_bridge br0
 create_pair veth0 veth1 "10.1.0.1/24" br0
 create_pair_ns veth2 veth3 "10.1.0.2/24" br0 vm0
+create_pair_ns veth4 veth5 "10.1.0.3/24" br0 vm1

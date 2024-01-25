@@ -39,5 +39,7 @@ create_bridge br1
 create_pair veth0 veth1 "10.0.0.1/24" br0
 create_pair veth2 veth3 "10.1.0.1/24" br1
 
-create_pair_ns veth4 veth5 "10.0.0." br0 vm0
-create_pair_ns veth6 veth7 "10.1.0." br1 vm1
+create_pair_ns veth4 veth5 "10.0.0." br0 h1
+create_pair_ns veth6 veth7 "10.1.0." br1 h2
+
+sysctl -w net.ipv4.ip_forward=1

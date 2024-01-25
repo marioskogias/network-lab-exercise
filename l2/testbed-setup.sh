@@ -9,16 +9,6 @@ create_bridge () {
   fi
 }
 
-create_pair () {
-  if ! ip link show $1 &> /dev/null; then
-    ip link add name $1 type veth peer name $2
-    ip addr add $3 brd + dev $1
-    brctl addif $4 $2
-    ip link set dev $1 up
-    ip link set dev $2 up
-  fi
-}
-
 create_pair_ns () {
   if ! ip link show $1 &> /dev/null; then
     ip link add name $1 type veth peer name $2
@@ -33,6 +23,6 @@ create_pair_ns () {
 }
 
 create_bridge br0
-create_pair veth0 veth1 "10.1.0.1/24" br0
-create_pair_ns veth2 veth3 "10.1.0.2/24" br0 vm0
-create_pair_ns veth4 veth5 "10.1.0.3/24" br0 vm1
+create_pair_ns veth0 veth1 "10.1.0.1/24" br0 h1
+create_pair_ns veth2 veth3 "10.1.0.2/24" br0 h2
+create_pair_ns veth4 veth5 "10.1.0.3/24" br0 h3
